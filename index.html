@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insta App</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0b1220;
+color:white;
+}
+
+.top{
+padding:10px;
+background:#111a2e;
+text-align:center;
+font-weight:bold;
+}
+
+.container{
+padding:10px;
+max-width:600px;
+margin:auto;
+}
+
+.card{
+background:#111a2e;
+padding:12px;
+border-radius:12px;
+margin-bottom:10px;
+}
+
+input, textarea{
+width:95%;
+padding:10px;
+margin:5px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#3b82f6;
+color:white;
+cursor:pointer;
+}
+
+.post{
+background:#0f172a;
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">📸 Meu Instagram Simples</div>
+
+<div class="container">
+
+<div class="card">
+<h3>Criar Post</h3>
+<textarea id="text" placeholder="Escreva algo..."></textarea>
+<button onclick="post()">Publicar</button>
+</div>
+
+<div id="feed"></div>
+
+</div>
+
+<script>
+function post(){
+let text = document.getElementById("text").value;
+if(!text) return;
+
+let feed = document.getElementById("feed");
+
+feed.innerHTML =
+`<div class="post">📌 ${text}</div>` + feed.innerHTML;
+
+document.getElementById("text").value="";
+}
+</script>
+
+</body>
+</html>
